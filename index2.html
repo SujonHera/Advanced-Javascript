@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <h1>User Data From Json Placeholder</h1>
+       <ul id="user-list">
+
+       </ul>
+       <ul id="email-list">
+
+       </ul>
+    <script>
+
+            fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(json => userDataForm(json))
+
+            const userDataForm = user =>{
+                const userName = user.map(name => name.username);
+                const userEmail = user.map(email => email.email);
+                const ul = document.querySelector("#user-list");
+                const ul2 = document.querySelector("#email-list");
+
+                for(let i = 0; i < userName.length; i++){
+                    const name = userName[i];
+                    const li = document.createElement("li");
+                    li.innerText = name;
+                    ul.appendChild(li);
+                }
+
+                const userInformation = userEmail.map(function(email){
+                    const li = document.createElement("li");
+                    li.innerText = email;
+                    ul2.appendChild(li);
+                })
+            }
+    </script>
+</body>
+</html>
