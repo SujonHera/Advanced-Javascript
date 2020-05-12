@@ -1,0 +1,5 @@
+// 1. exec()
+// 2. test()
+// 3. match()
+// 4. search()
+// 5. replace()

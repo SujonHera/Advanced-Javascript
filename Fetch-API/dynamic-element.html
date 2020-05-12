@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyanamic Element</title>
+</head>
+<body>
+    <ul id="allUsers">
+
+    </ul>
+    
+    <script>
+        let url = "https://jsonplaceholder.typicode.com/users"
+        fetch(url)
+        .then(response => response.json())
+        .then(data => showUserData(data))
+        .catch(error =>console.log(error))
+
+        let allUsers  =  document.querySelector("#allUsers")
+        console.log(allUsers)
+        let showUserData = (data)=>{
+            let lists = ''
+            data.forEach(user =>{
+                lists = lists + `<li> ${user.name} </li>`
+                
+            })
+            allUsers.innerHTML = lists;
+        }
+
+    </script>
+</body>
+</html>
